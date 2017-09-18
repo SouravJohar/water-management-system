@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complains and Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <br>
+    <h1>Complains and Services</h1>
+    <br>
+    {% if (data != 0) %}
+    Your existing complaint with ID <strong>{{data.sid}}</strong>, under the category <strong>{{data.st}}</strong>
+    with the complaint:"{{data.sr}}" is under the status <strong>{{data.ss}}</strong>
+      <br>
+      <br>
+    {% endif %}
+    <br>
+    <br>
+    <h4>New Complain<h4>
+
+    <h3>Select a service type<h3>
+      <form action="" method="post">
+
+    <select name="service" class="selectpicker form-control">
+      <option value="Water Quality">Water Quality</option>
+      <option value="Supply Issues">Supply Issues</option>
+      <option value="Lack of water">Lack of water</option>
+      <option value="Other">Other</option>
+    </select>
+    <br>
+    <br>
+    <h3>What is your complaint?<h3>
+
+    <textarea name="complainbody" rows="3" cols="40" value={{request.form.complainbody}}>
+    </textarea>
+    <input class="btn btn-default" type="submit" value="Done">
+
+  </form>
+
+
+  <br>
+  <h4>
+  {% for message in get_flashed_messages() %}
+    {{ message }}
+  {% endfor %}
+<h4>
+
+
+
+    </div>
+
+  </body>
+</html>

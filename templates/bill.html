@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../static/popup.css" rel="stylesheet" media="screen">
+    <script language="javascript" type="text/javascript" src="../static/pay.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <br>
+        <form action="" method="post">
+          <div class = "row text-center">
+            <div class = "col-sm-6">
+              <div class="details">
+                <h1>Payments</h1>
+                <h4>Your invoice</h4>
+                <br>
+                <strong>Due Amount: Rs</strong> {{ due_amt }}
+                <br>
+                <strong>Due date:</strong> {{ due_date }}
+                <br>
+                <strong>Fine: Rs</strong> {{ fine }}
+                <br>
+                <strong>Total amount to be paid: Rs</strong> {{ total }}
+                <br>
+                <br>
+                <a type="submit" onclick = "loadPMT()" class="btn btn-default">Pay</a>
+              </div>
+            </div>
+            <div class = "col-sm-6">
+              <div class= "payment" id="pmt" style="display: none;">
+                <strong>Amount: Rs</strong> {{ total }} <br>
+                <strong> Card Number: </strong>
+                <input type="number" placeholder="card details" name="card_no" value="{{request.form.card_no }}">
+                <br>
+                <br>
+                <strong> Name on card: </strong>
+                <input type="text" placeholder="card name" name="card_name" value="{{request.form.card_name}}">
+                <br>
+                <br>
+                <strong> CVV: </strong>
+                <input type="password" placeholder="cvv" name="cvv" value="{{request.form.cvv}}">
+                <br>
+                <br>
+                <a type="submit" onclick = "PMTstage2()" class="btn btn-default">Proceed</a>
+
+    </div>
+    <div class= "payment" id = "pmt2" style="display: none;">
+      <h3> Processing your transaction</h3>
+      <h6> Please wait while we process your request </h6>
+      <img src="../static/tenor.gif"/>
+      <script>setTimeout(function(){window.location.href='/cus/bill'},20000);</script>
+
+
+
+    </div>
+
+  </div>
+    </div>
+    <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Secure Payment Portal</h2>
+    </div>
+    <div class="modal-body">
+      <h3>Payment Succesfull!</h3>
+      <p>paytm Gateway</p>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+  <script>
+  console.log("inside")
+  var modal = document.getElementById('myModal');
+  var modal = document.getElementById('myModal');
+  var due_amt = {{ due_amt}}
+  var due_date = {{ due_date}}
+  console.log(due_date)
+  console.log(due_amt)
+  var span = document.getElementsByClassName("close")[0];
+  if (due_amt == 0 && due_date != "dunno") {
+  modal.style.display = "block";
+  }
+  span.onclick = function() {
+      modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+
+</div>
+
+
+  </form>
+  </div>
+  </body>
+</html>

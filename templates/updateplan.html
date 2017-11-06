@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Change your plan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Change current plan<h1>
+      <h2>Select the plan most suitable to you and we'll do the rest</h2>
+      <br>
+      <br>
+      <form action="" method="post">
+          <strong> Address:       </strong>
+
+          <textarea name="address" rows=2"" cols="40" value={{request.form.address}}>
+          </textarea>
+
+            <br>
+            <br>
+            <strong> Area:</strong>
+
+            <select name="area" class="selectpicker form-control">
+              <option value="ar1">T Nagar</option>
+              <option value="ar2">KK Nagar</option>
+              <option value="ar3">Anna Salai</option>
+              <option value="ar4">Cantonament</option>
+              <option value="ar5">Thillai Nagar</option>
+              <option value="ar6">Anna Nagar</option>
+              <option value="ar7">RS Puram</option>
+              <option value="ar8">Race Course</option>
+              <option value="ar9">Koramangala</option>
+              <option value="ar10">White Field</option>
+              </select>
+              <br>
+              <br>
+
+              <strong> Select your new connection type:</strong>
+
+              <select name="type" class="selectpicker form-control">
+                <option value="Pipeline - Fixed Limit">Pipeline - Fixed Limit</option>
+                <option value="Water Lorry">Water Lorry</option>
+                <option value="Pipeline - Unlimited">Pipeline - Unlimited</option>
+                </select>
+                <br>
+                <br>
+                <strong> Number of litres (per month):        </strong>
+                <input type="text" placeholder="litres" name="litres" value="{{
+                  request.form.litres }}">
+                  <br>
+                  <br>
+        <input class="btn btn-default" type="submit" value="Submit">
+        <br>
+      </form>
+    </div>
+  </body>
+</html>

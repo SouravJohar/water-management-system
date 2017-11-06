@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Water Management - Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Water Management Portal<h1>
+      <h2>Fill in your details</h2>
+      <br>
+      <br>
+      <form action="" method="post">
+        <strong> Email ID:        </strong>
+        <input type="text" placeholder="Email ID" name="email" value="{{
+          request.form.email }}">
+          <br>
+          <br>
+          <strong> First Name:       </strong>
+
+          <input type="text" placeholder="First Name" name="fname" value="{{
+            request.form.fname }}">
+            <br>
+            <br>
+            <strong> Last Name:</strong>
+
+            <input type="text" placeholder="Last Name" name="lname" value="{{
+              request.form.lname }}">
+              <br>
+              <br>
+              <strong> Create a new password: </strong>
+
+         <input type="password" placeholder="New password" name="password" value="{{
+          request.form.password }}">
+          <br>
+          <br>
+        <input class="btn btn-default" type="submit" value="Sign up!">
+        <br>
+      </form>
+      {% if error%}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+      {% endif %}
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+        <br>
+      {% endfor %}
+    </div>
+  </body>
+</html>

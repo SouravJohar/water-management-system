@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome - Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <script>
+        var d_name = {{ d_name }}
+      </script>
+      <br>
+      <h2>Hi {{d_name}}.</h2>
+      <h3>Welcome to your Control Panel<h3>
+      <br>
+      <br>
+      <br>
+      <a type="submit" href="/emp/empcomplain" class="btn btn-default">Complains</a>
+      <br>
+      <br>
+      <a type="submit" href="/emp/empcustomer" class="btn btn-default">Customer Details</a>
+      <br>
+      <br>
+      <a type="submit" href="/emp/empprofile" class="btn btn-default">Your Profile</a>
+      <br>
+      <br>
+      <a type="submit" href="/emp/empfeedback" class="btn btn-default">Feedback</a>
+      <br>
+      <br>
+      <h6>Click <a href="/emp/emplogout">here</a> to logout.</h6>
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,23 +1,25 @@
 <html>
   <head>
-    <title>Water Management - Login page</title>
+    <title>Water Management - Employees</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    <div class="container">
-      <h1>Water Management Portal<h1>
+
+<div allgin="center" class="container">
+
+      <h1>Water Management Portal - Employee Login<h1>
       <h2>Please login</h2>
       <br>
-      <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
+      <form action="" class= "center" method="post">
+        <input type="text"  placeholder="Username" name="username" value="{{
           request.form.username }}">
          <input type="password" placeholder="Password" name="password" value="{{
           request.form.password }}">
         <input class="btn btn-default" type="submit" value="Login">
         <br>
       </form>
-      <p><a href="/cus/signup">New user? Sign up here</a></p>
+
 
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}</p>

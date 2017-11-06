@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <br>
+      <h1>Customer Profile</h1>
+      <br>
+      <br>
+<form action="" method="post">
+        <input type="text" placeholder="CustomerID" name="CustomerID" value="{{
+          request.form.CustomerID }}">
+<input class="btn btn-default" type="submit" value="Select">
+</form>
+{% if (data.phone != 0) %}
+
+
+
+    <br>
+      <strong>Name:</strong> {{ data.firstname }} {{data.lastname}}<br>
+      <strong>Phone Number:</strong> {{ data.phone }} <br>
+      <strong>Address:</strong> {{ data.address }} <br>
+      <strong>Area:</strong> {{ data.area }} <br>
+
+	<strong>Water Allowance:</strong> {{ data.waterallowance }} litres per month<br>
+	<strong>Connection Type:</strong> {{ data.connectiontype }} <br>
+	<strong>Due Amount:</strong> Rs. {{ data.pendingamount }} <br>
+	<strong>Due Date:</strong> {{ data.duedate }} <br>
+	<strong>Previous Payment Date:</strong> {{ data.lastpdate }} <br>
+	<strong>Fine:</strong> Rs. {{ data.fine }} <br>
+	<strong>Supplier Name:</strong> {{ data.suppliername }} <br>
+	<strong>Lorry Number:</strong> {{ data.vid }} <br>
+
+{% endif %}
+<br>
+<a href = "/emp/">Go Back</a>
+    </div>
+  </body>
+</html>
